@@ -3,12 +3,11 @@ class Solution {
         int row = 0;
         int col = 0;
         
-        for(int i = 0 ; i < sizes.length ; i++){
-            row = row < Math.max(sizes[i][0], sizes[i][1]) ? 
-                Math.max(sizes[i][0], sizes[i][1]) : row;
-            col = col < Math.min(sizes[i][0], sizes[i][1]) ?
-                Math.min(sizes[i][0], sizes[i][1]) : col;
+        for(int[] arr : sizes){
+            row = Math.max(row, Math.max(arr[0], arr[1]));
+            col = Math.max(col, Math.min(arr[0], arr[1]));
         }
+        
         return row*col;
     }
 }
