@@ -1,7 +1,8 @@
 import java.util.stream.LongStream;
 class Solution {
     public long solution(int price, int money, int count) {
-        long answer = (long) price * (LongStream.rangeClosed(1, count).sum());
-        return money - answer >= 0 ? 0 : Math.abs(money - answer);
+        long answer = -1;
+        answer *= money - (long) price * count * (count+1) / 2;
+        return answer <= 0 ? 0 : answer;
     }
 }
